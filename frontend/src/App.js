@@ -1,26 +1,26 @@
 import React from "react";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PrivateRoute from "./utils/PrivateRoute";
-import { AuthProvider } from "./context/AuthContext";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Homepage from "./views/Homepaje";
-import Registerpage from "./views/Registerpaje";
-import Loginpage from "./views/Loginpage";
+import { AuthProvider } from "./context/AuthContext";
+import Layout from "./views/Layout";
 import Dashboard from "./views/Dashboard";
-import reactRouterDom from "react-router-dom";
-import Sidebar from "./views/Sidebar";
+import Urgent from "./views/Urgent";
+import Task from "./views/Task";
+import Homepage from "./views/Homepaje";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <Sidebar></Sidebar>
-        <Switch>
-          <PrivateRoute component={Dashboard} path="/dashboard" exact />
-          <Route component={Loginpage} path="/login" />
-          <Route component={Registerpage} path="/register" />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/layout" element={<Layout />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="task" element={<Task />} />
+            <Route path="urgent" element={<Urgent />} />
+          </Route>
+        </Routes>
       </AuthProvider>
     </Router>
   );

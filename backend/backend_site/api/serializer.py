@@ -1,5 +1,4 @@
-from api.models import User, Profile
-
+from api.models import User, Task
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
@@ -51,3 +50,10 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+    
+class TaskSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Task
+        fields = ['id', 'user', 'title', 'description', 'completed', 'due_date', 'date_created', 'category']
+
