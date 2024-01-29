@@ -3,6 +3,7 @@ from django.urls import path
 # from api import views
 from . import views
 from .views import TaskListView
+from .views import TaskListView, TaskDetailView, TaskMarkAsCompleted
 
 
 
@@ -19,6 +20,8 @@ urlpatterns = [
    
 
    #Task URLS
+
+
 
    path("task/<user_id>/", views.TaskListView.as_view()),
    path("task-detail/<user_id>/<task_id>/", views.TaskDetailView.as_view()),

@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
       setAuthTokens(data);
       setUser(jwtDecode(data.access));
       localStorage.setItem("authTokens", JSON.stringify(data));
-      navigate("/layout");
+      navigate("/layout/dashboard/");
       swal.fire({
         title: "Login Successful",
         icon: "success",
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
       console.log(response.status);
       console.log("there was a server issue");
       swal.fire({
-        title: "You have been logged out...",
+        title: "There was a server issue...",
         icon: "success",
         toast: true,
         timer: 2000,
@@ -112,7 +112,7 @@ export const AuthProvider = ({ children }) => {
     setAuthTokens(null);
     setUser(null);
     localStorage.removeItem("authTokens");
-    navigate("/login");
+    navigate("/");
     swal.fire({
       title: "You have been logged out...",
       icon: "success",

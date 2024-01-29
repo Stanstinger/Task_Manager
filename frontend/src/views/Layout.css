@@ -212,11 +212,13 @@
   justify-content: center;
   align-items: center;
 }
-#content nav .profile img {
+#content nav .profile {
   width: 36px;
   height: 36px;
   object-fit: cover;
   border-radius: 50%;
+  font-weight: 600;
+  font-size: 16px;
 }
 #content nav .switch-mode {
   display: block;
@@ -249,7 +251,7 @@
   padding: 36px 24px;
   font-family: var(--poppins);
   max-height: calc(100vh - 56px);
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 /* MAIN */

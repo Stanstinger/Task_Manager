@@ -11,24 +11,29 @@ const useAxios = () => {
 
   const axiosInstance = axios.create({
     baseURL,
-    HEADERS: { Authorization: "Bearer ${authTokens?.access}" },
+    HEADERS: { Authorization: `Bearer ${authTokens?.access}` },
   });
 
   axiosInstance.interceptors.request.use(async (req) => {
+    if (authTokens && authTokens.access) {
+      req.headers.Authorization = `Bearer ${authTokens.access}`;
+    }
     const user = jwtDecode(authTokens.access);
     const isExpired = dayjs.unix(user.exp).diff(dayjs()) < 1;
 
     if (isExpired) return req;
 
-    const response = await axios.post("${baseURL}/token/refresh/", {
+    const response = await axios.post(`${baseURL}/token/refresh/`, {
       refresh: authTokens.refresh,
     });
-    localStorage.setItem("authToken", JSON.stringify(response.data));
+    localStorage.setItem("authTokens", JSON.stringify(response.data));
 
     setAuthTokens(response.data);
     setUser(jwtDecode(response.data.access));
 
-    req.headers.Authorization = "Bearer ${response.data.access}";
+    console.log("Authorization Header", req.headers.Authorization);
+
+    req.headers.Authorization = `Bearer ${response.data.access}`;
     return req;
   });
 

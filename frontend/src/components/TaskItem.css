@@ -1,0 +1,116 @@
+.item-container {
+  width: 350px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 3%;
+  background-color: rgb(214, 207, 207);
+  margin-bottom: 2rem;
+}
+
+.first-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  font-size: 16px;
+  color: #000;
+}
+
+.third-div {
+  display: grid;
+  grid-template-columns: 2, 1fr;
+  grid-template-rows: 2, 1fr;
+  justify-content: space-between;
+}
+
+.date-div {
+  grid-column: 1;
+  grid-row: 2;
+  font-weight: bold;
+  color: red;
+}
+
+.btns {
+  grid-column: 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.btn-delete {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  /* border: 2px solid rgb(231, 50, 50); */
+  border: none;
+  background-color: rgb(214, 207, 207);
+  cursor: pointer;
+  /* box-shadow: 0 0 10px #333; */
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(245, 207, 207);
+  transform: scale(1.2);
+  /* box-shadow: 0 0 4px #111; */
+  transition: 0.3s;
+}
+
+.svg-delete {
+  color: rgb(231, 50, 50);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+
+.btn-delete:focus svg {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.btn-delete span {
+  width: 150px;
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  color: rgb(231, 50, 50);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-delete:focus {
+  width: 150px;
+  height: 50px;
+  transition: 0.3s;
+}
+
+.btn-delete:focus span {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.delete-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-box {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.completed-box {
+  display: flex;
+  gap: 4px;
+}
