@@ -1,7 +1,7 @@
 import React from "react";
 import "./Task.css";
 import { useState, useEffect } from "react";
-import useAxios from "../utils/useAxios";
+
 import { jwtDecode } from "jwt-decode";
 import TaskForm from "../components/TaskForm";
 import TaskItem from "../components/TaskItem";
@@ -10,7 +10,6 @@ import axios from "axios";
 
 export default function Task() {
   const baseUrl = "http://127.0.0.1:8000/api";
-  const api = useAxios();
   const token = localStorage.getItem("authTokens");
   const decoded = jwtDecode(token);
   const user_id = decoded.user_id;

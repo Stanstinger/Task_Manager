@@ -58,8 +58,8 @@ export const AuthProvider = ({ children }) => {
       console.log(response.status);
       console.log("there was a server issue");
       swal.fire({
-        title: "There was a server issue...",
-        icon: "success",
+        title: "Confirm credentials and try again...",
+        icon: "error",
         toast: true,
         timer: 2000,
         position: "top-right",

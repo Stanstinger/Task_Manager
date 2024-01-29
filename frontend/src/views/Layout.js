@@ -9,7 +9,6 @@ import AuthContext from "../context/AuthContext";
 function Layout() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [activeMenuItem, setActiveMenuItem] = useState("Dashboard");
-  const api = useAxios();
   const token = localStorage.getItem("authTokens");
   const decoded = jwtDecode(token);
   const user_name = decoded.username;

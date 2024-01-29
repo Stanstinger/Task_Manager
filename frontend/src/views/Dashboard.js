@@ -9,7 +9,6 @@ import TaskItem from "../components/TaskItem";
 
 function Dashboard() {
   const baseUrl = "http://127.0.0.1:8000/api";
-  const api = useAxios();
   const token = localStorage.getItem("authTokens");
   const decoded = jwtDecode(token);
   const user_id = decoded.user_id;

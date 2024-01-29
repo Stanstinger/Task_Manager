@@ -3,7 +3,6 @@ main {
   padding: 36px 24px;
   font-family: var(--poppins);
   max-height: calc(100vh - 56px);
-  /* overflow-y: auto; */
 }
 .head-title {
   display: flex;

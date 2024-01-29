@@ -70,7 +70,6 @@ a {
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
   opacity: 0;
-  /* pointer-events: none; */
   transition: all 0.5s ease-out;
 }
 .home.show::before {
@@ -91,7 +90,6 @@ a {
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.1);
   opacity: 1;
-  /* pointer-events: none; */
   transition: all 0.4s ease-out;
 }
 .home.show .form_container {
@@ -99,9 +97,7 @@ a {
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
 }
-/* .signup_form {
-  display: none;
-} */
+
 .form_container.active .signup_form {
   display: block;
 }
